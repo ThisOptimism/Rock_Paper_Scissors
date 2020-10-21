@@ -11,17 +11,14 @@
 
     const computerPlay = () => {
       const num = Math.floor(Math.random() * 3)
-      if (num === 0) {
+      if (num == 0) {
         return 'rock'
-      } else if (num === 1) {
+      } else if (num == 1) {
         return 'paper';
       } else {
         return 'scissors';
       }
     }
-
-    const playerPlay = 'RoCk'.toLowerCase()
-    const computer = computerPlay().toLowerCase()
 
     function playRound(computerPlay, playerPlay) {
       if (computerPlay === playerPlay) {
@@ -31,20 +28,38 @@
         playerScore++
       } else if (computerPlay === 'rock' && playerPlay === 'scissors') {
         console.log("Rock beats Scissors... you've lost!");
+        computerScore++
       } else if (computerPlay === 'scissors' && playerPlay === 'paper') {
-        console.log("Scissor beets Paper... you've lost");
+        console.log("Scissor beats Paper... you've lost");
+        computerScore++
       } else if (computerPlay === 'scissors' && playerPlay === 'rock') {
-        console.log("Rock beets Scissors... you've won!");
+        console.log("Rock beats Scissors... you've won!");
         playerScore++
       } else if (computerPlay === 'paper' && playerPlay === "scissors") {
-        console.log("Scissors beets Paper... you've won!");
+        console.log("Scissors beats Paper... you've won!");
         playerScore++
       } else if (computerPlay === 'paper' && playerPlay === "rock") {
-        console.log("Paper beets Rock... you've lost");
+        console.log("Paper beats Rock... you've lost");
+        computerScore++
       }
     }
-    playRound(computer.toLowerCase(), playerPlay.toLowerCase())
-    console.log(playerScore)
+
+  const game = () => {
+    for (i = 0; i <5; i++) {
+      let pc = computerPlay();
+      let player = prompt(`Round ${i+1}! Enter Rock, Paper or Scissor`).toLowerCase();
+      console.log(player)
+      if (player === 'rock' || player === 'paper' || player === 'scissors') {
+        playRound(pc, player);
+        console.log(playerScore, computerScore)
+      } else {
+        alert('ENTER ROCK, PAPER OR SCISSORS')
+        i--
+      }
+    }
+  }
+game()
+
 
   </script>
 </body>
