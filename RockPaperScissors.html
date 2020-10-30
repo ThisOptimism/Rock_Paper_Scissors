@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock//Paper//Scissors - THE GAME</title>
+    <meta charset="UTF-8"/>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header id="header">
+      <h2>ROCK // PAPER // SCIOSSORS<br><span>THE GAME</span></h2>
+    </header>
+      <div class="playerSelection">
+            <img id="rock">
+            <img id="paper">
+            <img id="scissors">
+      </div>
+    <div class="scoreBoard">
+      <div id="pick">CHOOSE YOUR WEAPON!</div>
+      <div id="score" class="scorey"><span>WON:</span> 0  -  <span>LOST:</span> 0  -  <span>ROUNDS PLAYED:</span> 0</div>
+    </div>
+  </body>
+
+
+
+
+
+  <script>
+  let playerScore = 0;
+  let computerScore = 0;
+  let rounds = 0;
+
+  const computerPlay = () => {
+    const num = Math.floor(Math.random() * 3)
+    if (num == 0) {
+      return 'rock'
+    } else if (num == 1) {
+      return 'paper';
+    } else {
+      return 'scissors';
+    }
+  }
+
+
+  function playRound(ai, playerPlay) {
+      ++rounds
+    if (ai === playerPlay) {
+      result.textContent = "DRAW!!!";
+    } else if (playerPlay === 'rock') {
+        if (ai === 'paper') {
+          ++computerScore
+          result.textContent = 'YOU LOOSE! PAPER BEATS ROCK!';
+        } else {
+          ++playerScore
+          result.textContent = 'YOU WIN! ROCK BEATS SCISSORS';
+        }
+    } else if (playerPlay === 'scissors') {
+        if (ai === 'rock') {
+          ++computerScore
+          result.textContent = 'YOU LOOSE! ROCK BEATS SCISSORS!'
+        } else {
+          ++playerScore
+          result.textContent = 'YOU WIN! SCISSORS BEATS PAPER!'
+        }
+    } else if (playerPlay === 'paper') {
+        if (ai === 'rock') {
+          ++playerScore
+          result.textContent = 'YOU WIN! PAPER BEATS ROCK!'
+
+        } else {
+          ++computerScore
+          result.textContent = 'YOU LOOSE! SCISSORS BEATS PAPER!'
+        }
+    }
+  }
+
+const game = (player) => {
+    let pc = computerPlay();
+    playRound(pc, player);
+
+    if (playerScore === 5) {
+      alert('YOU ARE THE WINNER!!!!')
+      playerScore = 0;
+      computerScore = 0;
+      rounds = 0;
+    } else if (computerScore === 5) {
+      alert('YOU LOOSE!!!')
+      playerScore = 0;
+      computerScore = 0;
+      rounds = 0;
+    }
+    score.textContent = `WON: ${playerScore}  -  LOST: ${computerScore}  -  ROUNDS PLAYED: ${rounds}`
+
+  }
+
+
+
+document.getElementById('rock').addEventListener('click', () => {
+  game('rock')
+});
+
+document.getElementById('paper').addEventListener('click', () => {
+  game('paper')
+});
+
+document.getElementById('scissors').addEventListener('click', () => {
+  game('scissors')
+});
+
+let score = document.querySelector('#score');
+let result = document.querySelector('#pick')
+
+  </script>
+</html>

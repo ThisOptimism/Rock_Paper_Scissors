@@ -1,0 +1,70 @@
+/*/universal stylesheet/*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+div {
+  background-color: #0099cc;
+  font-family: times;
+  height: auto;
+  height: auto;
+}
+
+#header {
+  text-align: center;
+  background-color: #004b66;
+  height: 200px;
+  font-style: italic;
+  font-family: helvetica;
+  font-size: 40px;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+#header h2 {
+  background-color: #004b66;
+  padding: 20px 20px;
+}
+
+#header span {
+  color: white;
+}
+
+.playerSelection {
+  text-align: center;
+  background-color: #0099cc;
+  font-family: times;
+  list-style: inside;
+}
+
+img#rock {
+  content: url("https://www.rock-paper-scissors-game.com/i/rock.png");
+  height: 300px;
+  width: auto;
+  padding: 20px;
+}
+
+img#paper {
+  content: url("https://www.rock-paper-scissors-game.com/i/paper.png");
+  height: 300px;
+  width: auto;
+  padding: 20px;
+}
+
+img#scissors {
+  content: url("https://www.rock-paper-scissors-game.com/i/scissors.png");
+  height: 300px;
+  width: auto;
+  padding: 20px;
+}
+
+.scoreBoard {
+  text-align: center;
+  font-family: helvetica;
+}
+
+.scorey span{
+  font-weight: bold;
+
+}
